@@ -1,0 +1,27 @@
+html{
+    background: blanchedalmond;
+}
+form{
+    background: blanchedalmond;
+    text-align: center;
+}
+header{
+    background: peru;
+    
+}
+
+main{
+    padding: 2rem;
+    background: blanchedalmond;
+
+}
+form {
+    width: 1820px; 
+    height: 175px; 
+    border: 3px solid #555;
+    background: burlywood;
+    text-align: center;
+}
+label{
+    margin-bottom: 1rem;
+}

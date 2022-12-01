@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Title</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS v5.2.1 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+  <header>
+    <div class="container">
+        <header class="d-flex flex-wrap justify-content-center py-3 border-bottom">
+          <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+            <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+            <span class="fs-4">¿En qué categoria juego según mi edad? </span>
+          </a>
+    
+          <ul class="nav">
+            <li class="nav-item"><a href="/JavaScript/Proyecto/IMC/imc.html" class="nav-link active" aria-current="page" style="color: white;">Calculadora IMC</a></li>
+            <li class="nav-item"><a href="/JavaScript/Proyecto/Categoria/categoria.html" class="nav-link active" aria-current="page" style="color: white;">¿En qué categoria juego?</a></li>
+            <li class="nav-item"><a href="/JavaScript/Proyecto/FCM/fcm.html" class="nav-link active" aria-current="page" style="color: white;">Calculadora FCM</a></li>
+            <li class="nav-item"><a href="/JavaScript/Proyecto/Horario/horario.html" class="nav-link active" aria-current="page" style="color: white;">Horario</a></li>
+          </ul>
+        </header>
+      </div>   
+    </header>
+  <main>
+    <form id="formulario">
+        <label for="añoNacimiento">Introduce tu año de naciemiento:</label>
+        <input type="number" id="nacimiento" required>
+        <br>
+        <button type="button" onclick="CalcularCategoria()">Calcular Categoria</button>
+        <p id="respuesta"></p>
+        <p id="result" style="text-align: center; font-weight: bolder;">
+
+  </main>
+  <footer>
+    <!-- place footer here -->
+  </footer>
+  <!-- Bootstrap JavaScript Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+  </script>
+
+    <script>
+        function CalcularCategoria(){
+            const today = new Date(Date.now());
+            let añoActual = today.getFullYear();
+            let añoNacimiento = parseInt(document.getElementById('nacimiento').value);
+            let edad = (añoActual - añoNacimiento);
+            var listaCategoria = "";
+            
+                if(edad >= 4 && edad < 5)
+                {
+                    listaCategoria = "BabyBasket";
+                }
+                else if (edad>=6 && edad < 7)
+                {
+                    listaCategoria = "Pre-Benjamin";
+                }
+                else if (edad>=8 && edad < 9)
+                {
+                    listaCategoria = "Benjamin";
+                }
+                else if (edad>=10 && edad < 11)
+                {
+                    listaCategoria = "Alevín";
+                }
+                else if (edad>=12 && edad < 13)
+                {
+                    listaCategoria = "Infantil";
+                }
+                else if (edad>=14 && edad < 15)
+                {
+                    listaCategoria = "Cadete";
+                }
+                else if (edad>=16 && edad < 17)
+                {
+                    listaCategoria = "Junior";
+                }
+                else if (edad>=18 && edad < 22)
+                {
+                    listaCategoria = "Sub 22";
+                }
+                else if (edad>22)
+                {
+                    listaCategoria = "Senior";
+                }
+        
+            document.getElementById("result").innerHTML="Su categoria es: " + listaCategoria;
+        }
+    </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+  </script>
+</body>
+
+</html>

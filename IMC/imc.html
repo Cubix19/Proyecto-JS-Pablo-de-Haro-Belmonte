@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Calculadora IMC</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Bootstrap CSS v5.2.1 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <header class="d-flex flex-wrap justify-content-center py-3 border-bottom">
+        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+          <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+          <span class="fs-4">Calculadora IMC </span>
+        </a>
+  
+        <ul class="nav">
+          <li class="nav-item"><a href="/JavaScript/Proyecto/IMC/imc.html" class="nav-link active" aria-current="page" style="color: white;">Calculadora IMC</a></li>
+          <li class="nav-item"><a href="/JavaScript/Proyecto/Categoria/categoria.html" class="nav-link active" aria-current="page" style="color: white;">¿En qué categoria juego?</a></li>
+          <li class="nav-item"><a href="/JavaScript/Proyecto/FCM/fcm.html" class="nav-link active" aria-current="page" style="color: white;">Calculadora FCM</a></li>
+          <li class="nav-item"><a href="/JavaScript/Proyecto/Horario/horario.html" class="nav-link active" aria-current="page" style="color: white;">Horario</a></li>
+
+        </ul>
+      </header>
+    </div>  
+  </header>
+  <main>
+      <form id="formulario">
+        <label for="sexo">Indique su sexo, una 'h' para hombre o una 'm' para mujer:</label>
+        <input type="text" id="sexo" required="required">
+        <br>
+        <label for="altura">Indique su altura en centímetros:</label>
+        <input type="number" id="altura" required="required">
+        <br>
+        <label for="peso">Indique su peso en kilógramos:</label>
+        <input type="number" id="peso" required="required">
+        <br>
+        <button type="button" onclick="CalcularIMC()">Calcular IMC</button>
+        <p id="respuesta"></p>
+        <p id="result" style="text-align: center; font-weight: bolder;">
+        </p>
+      </form>
+      
+  </main>
+  <footer>
+    
+  </footer>
+  <!-- Bootstrap JavaScript Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+  </script>
+
+        <script>
+            //Función para calcular el índice de masa corporal (indice)
+            function CalcularIMC() {
+
+
+          //----------------------------RECOGIDA DE DATOS PARA LA FÓRMULA---------------------------------
+
+
+            let sex = (document.getElementById('sexo').value);
+            let alturaEnCentimetros = parseInt(document.getElementById('altura').value);
+            let alturaEnMetros = (alturaEnCentimetros) / 100;
+            let pesoEnKilos = parseInt(document.getElementById('peso').value);
+
+
+          //----------------------------CÁLCULO DE LA FORMULA----------------------------------------
+
+
+            let indice = Math.round(pesoEnKilos / Math.pow(alturaEnMetros, 2));
+            //La función Math.roud sirve para redondear valores
+            //La función Math.pow sirve para calcular potencias
+            let resultado = "";
+            //Sexo, si es "M" mujer y si es "H" hombre
+            switch (true) 
+            {
+                case (sex=='m' || sex=='M'): 
+                
+                  if (indice < 16)
+                  {
+                      resultado = "Infrapeso (delgadez severa)";
+                  }
+                  else if (indice >= 16 && indice < 16.99)
+                  {
+                      resultado = "Infrapeso (delgadez moderada).";
+                  }
+                  else if (indice >= 17 && indice < 18.49)
+                  {
+                      resultado = "Infrapeso (delgadez aceptable).";
+                  }
+                  else if (indice >= 20 && indice < 24)
+                  {
+                      resultado = "Peso Normal.";
+                  }
+                  else if (indice >= 24 && indice < 29)
+                  {
+                      resultado = "Peso superior al normal.";
+                  }
+                  else if (indice >= 30 && indice <= 34.99) 
+                  {
+                      resultado = "Obeso tipo I.";
+                  } 
+                  else if (indice >= 35 && indice <= 39.99) {
+                      resultado = "Obeso tipo II.";
+                  } 
+                  else if (indice > 40 ) 
+                  {
+                      resultado = "Obeso tipo III.";
+                  } 
+                  
+                  break;
+
+                case (sex=='h'|| sex=='H'):
+                
+                  if (indice < 16)
+                  {
+                      resultado = "Infrapeso (delgadez severa)";
+                  }
+                  else if (indice >= 16 && indice < 18.49)
+                  {
+                      resultado = "Infrapeso (delgadez moderada).";
+                  }
+                  else if (indice >= 18.50 && indice < 19.99)
+                  {
+                      resultado = "Infrapeso (delgadez aceptable).";
+                  }
+                  else if (indice >= 20 && indice < 24)
+                  {
+                      resultado = "Peso Normal.";
+                  }
+                  else if (indice >= 24 && indice < 29)
+                  {
+                      resultado = "Peso superior al normal.";
+                  }
+                  else if (indice >= 30 && indice <= 34.99) 
+                  {
+                      resultado = "Obeso tipo I.";
+                  } 
+                  else if (indice >= 35 && indice <= 39.99) {
+                      resultado = "Obeso tipo II.";
+                  } 
+                  else if (indice > 40 ) 
+                  {
+                      resultado = "Obeso tipo III.";
+                  } 
+                  break;
+                default:
+                resultado = "No se ha podido calcular. No ha indicado h (hombre) o m (mujer).";
+            }
+            //Con toFixed reduciremos a 2 el número de decimales a mostrar
+            document.getElementById("result").innerHTML="Su indice es: " + indice.toFixed(2) + " y su clasificación es: " + resultado;
+            }
+        </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+  </script>
+</body>
+
+</html>
